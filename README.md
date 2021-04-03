@@ -1,1 +1,1 @@
-# aplicacao-orientada-eventos
+# Aplicação orientada eventos utilizando Lambdas da AWS

@@ -4,9 +4,9 @@ import random
 
 client = boto3.client("sns")
 
-AWS_KEY_ID = "AKIA5AHNVOVVKLM7MLV6"
-AWS_SECRET = "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"
-TOPIC_ARN = "arn:aws:sns:us-east-1:893851628906:order"
+AWS_KEY_ID = "<sua AWS_KEY_ID>"
+AWS_SECRET = "<seu AWS_SECRET>"
+TOPIC_ARN = "arn:aws:sns:us-east-1:xxxxxxxxxxxxxx:order"
 
 sns = boto3.client(
     "sns",
@@ -18,13 +18,12 @@ sns = boto3.client(
 sns.publish(
     TopicArn=TOPIC_ARN,
     Subject="some subject",
-    Message=json.dumps({
-        "customer": {
-            "name": "Fulano de tal",
-            "age": random.randint(1, 1000)
-        },
-        "amount": 15.0,
-    }),
+    Message=json.dumps(
+        {
+            "customer": {"name": "Fulano de tal", "age": random.randint(1, 1000)},
+            "amount": 15.0,
+        }
+    ),
 )
 
 # print(sns.list_topics())
